@@ -15,7 +15,14 @@ func ConvertJSONToSchema(jsonString string) map[string]interface{} {
 
 	schema := generateJSONSchema(jsonData)
 
-	return schema
+	finalSchema := map[string]interface{}{
+		"$schema": "https://json-schema.org/draft/2020-12/schema",
+	}
+	for key, value := range schema {
+		finalSchema[key] = value
+	}
+
+	return finalSchema
 
 }
 
