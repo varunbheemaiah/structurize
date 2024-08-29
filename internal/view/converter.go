@@ -2,6 +2,7 @@ package view
 
 import (
 	"converter/internal/pkg/json2schema"
+	"converter/internal/pkg/json2xml"
 	"io"
 	"net/http"
 
@@ -21,5 +22,21 @@ func (p Provider) ConvertJSONToSchema(c *gin.Context) {
 	schema := json2schema.ConvertJSONToSchema(jsonStr)
 
 	c.JSON(200, schema)
+
+}
+
+func (p Provider) ConvertJSONToXML(c *gin.Context) {
+
+	body, err := io.ReadAll(c.Request.Body)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	jsonStr := string(body)
+
+	xmlStr := json2xml.ConvertJSONToXML(jsonStr)
+
+	c.String(200, xmlStr)
 
 }
