@@ -18,6 +18,7 @@ func main() {
 	converterProvider := view.NewProvider()
 	router.POST("/json-2-schema", converterProvider.ConvertJSONToSchema)
 	router.POST("/json-2-xml", converterProvider.ConvertJSONToXML)
+	router.POST("/xml-2-json", converterProvider.ConvertXMLToJSON)
 
 	router.Run(":8000")
 
