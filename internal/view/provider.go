@@ -9,6 +9,7 @@ type ProviderInterface interface {
 	ConvertJSONToSchema(c *gin.Context)
 	ConvertJSONToXML(c *gin.Context)
 	ConvertXMLToJSON(c *gin.Context)
+	ConvertJSONToStruct(c *gin.Context)
 }
 
 type Provider struct {

@@ -19,6 +19,7 @@ func main() {
 	router.POST("/json-2-schema", converterProvider.ConvertJSONToSchema)
 	router.POST("/json-2-xml", converterProvider.ConvertJSONToXML)
 	router.POST("/xml-2-json", converterProvider.ConvertXMLToJSON)
+	router.POST("/json-2-struct", converterProvider.ConvertJSONToStruct)
 
 	router.Run(":8000")
 
