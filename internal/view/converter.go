@@ -71,13 +71,11 @@ func (p Provider) ConvertJSONToStruct(c *gin.Context) {
 		return
 	}
 
-	// Get the values of xml, json, bson, omitempty and default from the request parameters
 	xml := c.Query("xml")
 	bson := c.Query("bson")
 	omitempty := c.Query("omitempty")
 	defaultValue := c.Query("default")
 
-	// Convert the xml, json, bson, omitempty and default values to boolean
 	xmlBool := xml == "true"
 	bsonBool := bson == "true"
 	omitemptyBool := omitempty == "true"
